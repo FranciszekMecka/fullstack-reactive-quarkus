@@ -37,7 +37,7 @@ public class UserService {
 
   @WithTransaction
   public Uni<User> create(User user) {
-    user.updatePassword(BcryptUtil.bcryptHash(user.getPassword()));
+//    user.updatePassword(BcryptUtil.bcryptHash(user.getPassword()));
     return user.persist();
   }
 

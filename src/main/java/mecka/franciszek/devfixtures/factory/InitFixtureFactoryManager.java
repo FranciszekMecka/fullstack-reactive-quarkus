@@ -25,4 +25,8 @@ public class InitFixtureFactoryManager {
   public Uni<Void> generateFixtures() {
     return userFactory.generateFixtures();
   }
+
+  public Uni<Void> generateFixturesMulti() {
+    return userFactory.generateFixturesMulti();
+  }
 }

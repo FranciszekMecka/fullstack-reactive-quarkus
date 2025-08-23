@@ -7,6 +7,7 @@ import io.smallrye.mutiny.Uni;
 import io.smallrye.mutiny.unchecked.Unchecked;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import mecka.franciszek.user.UserRole;
 import mecka.franciszek.user.UserService;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -36,7 +37,7 @@ public class AuthService {
         }
         return Jwt.issuer(issuer)
           .upn(user.getName())
-          .groups(new HashSet<>(user.getRoles()))
+          .groups(new HashSet<>(user.getRoles().stream().map(UserRole::getValue).toList()))
           .expiresIn(Duration.ofHours(1L))
           .sign();
       }));

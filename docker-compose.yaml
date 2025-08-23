@@ -9,4 +9,7 @@ services:
     ports:
       - "${POSTGRES_PORT}:5432"
     volumes:
-      - ./db-data:/var/lib/postgresql/data
+      - my-db-data:/var/lib/postgresql/data
+
+volumes:
+  my-db-data:
